@@ -107,8 +107,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_q,      setgaps,        {.i = +5 } },
 	{ MODKEY,                       XK_y,      setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_y,      setgaps,        {.i = GAP_TOGGLE} },
-	{ MODKEY|ShiftMask,		XK_KP_Add, changeopacity,       {.f = +0.1}},
-	{ MODKEY|ShiftMask,		XK_KP_Subtract, changeopacity,  {.f = -0.1}},
+	{ MODKEY,                       XK_w,      changeopacity,  {.f = +0.1}},
+	{ MODKEY,                       XK_s,      changeopacity,  {.f = -0.1}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
