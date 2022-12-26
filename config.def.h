@@ -9,6 +9,7 @@ static const int showbar            = 1;        /* 0 means no standard bar */
 static const int topbar             = 1;        /* 0 means standard bar at bottom */
 static const int extrabar           = 1;        /* 0 means no extra bar */
 static const char statussep         = ';';      /* separator between statuses */
+static const double defaultopacity  = 0.75;
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
@@ -31,9 +32,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class      instance    title       tags mask     isfloating	 opacity	monitor */
+	{ "Gimp",     NULL,       NULL,       0,            1,           1.0,		-1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           1.0,		-1 },
+	{ "St",	      NULL,       NULL,       0,            0,           defaultopacity, -1},
 };
 
 /* layout(s) */
@@ -105,6 +107,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_q,      setgaps,        {.i = +5 } },
 	{ MODKEY,                       XK_y,      setgaps,        {.i = GAP_RESET } },
 	{ MODKEY|ShiftMask,             XK_y,      setgaps,        {.i = GAP_TOGGLE} },
+	{ MODKEY|ShiftMask,		XK_KP_Add, changeopacity,       {.f = +0.1}},
+	{ MODKEY|ShiftMask,		XK_KP_Subtract, changeopacity,  {.f = -0.1}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
