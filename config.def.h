@@ -69,6 +69,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "terminal", "-o", "background_opacity=0.8", NULL };
 static const char *explorercmd[] = { "explorer", NULL };
+static const char *screenshotcmd[] = { "flameshot", "full", NULL };
+static const char *manualscreenshotcmd[] = { "flameshot", "gui", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -76,6 +78,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = explorercmd } },
+	{ MODKEY,                       XK_Print,  spawn,          {.v = screenshotcmd } },
+	{ MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = manualscreenshotcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      toggleextrabar, {0} },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = +1 } },
