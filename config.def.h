@@ -73,6 +73,7 @@ static const char *termcmd[]  = { "terminal", "-o", "background_opacity=0.8", NU
 static const char *explorercmd[] = { "explorer", NULL };
 static const char *screenshotcmd[] = { "flameshot", "full", NULL };
 static const char *manualscreenshotcmd[] = { "flameshot", "gui", NULL };
+static const char *audiomixercmd[] = { "pavucontrol", NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -82,6 +83,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_e,      spawn,          {.v = explorercmd } },
 	{ MODKEY,                       XK_Print,  spawn,          {.v = screenshotcmd } },
 	{ MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = manualscreenshotcmd } },
+	{ MODKEY,                       XK_m,      spawn,          {.v = audiomixercmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      toggleextrabar, {0} },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = +1 } },
@@ -100,7 +102,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
