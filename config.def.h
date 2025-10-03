@@ -38,7 +38,7 @@ static const Rule rules[] = {
 	/* { "Gimp",         NULL,    NULL,    0,          1,         1.0,              -1 }, */
 	/* { "Firefox",      NULL,    NULL,    1 << 8,     0,         1.0,              -1 }, */
 	   { "St",           NULL,    NULL,    0,          0,         defaultopacity,   -1 },
-	   { "Pavucontrol",  NULL,    NULL,    0,          1,         1.0,              -1 }
+	   { "pavucontrol",  NULL,    NULL,    0,          1,         1.0,              -1 }
 };
 
 /* layout(s) */
